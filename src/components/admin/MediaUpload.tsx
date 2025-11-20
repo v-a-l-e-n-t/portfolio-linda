@@ -5,8 +5,24 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload } from "lucide-react";
 import { toast } from "sonner";
+
+const CATEGORIES = [
+  { value: "festival-arts-feminin-2025", label: "Festival des arts au féminin 2025" },
+  { value: "festival-arts-feminin-2023", label: "Festival des arts au féminin 2023" },
+  { value: "journee-porte-ouverte-yiri", label: "Journée porte ouverte - Centre Yiri" },
+  { value: "mariage", label: "Animation de mariage" },
+  { value: "webday-2025", label: "Modération Webday 2025" },
+  { value: "webday-2024", label: "Webday 2024" },
+  { value: "causerie-debat-2025", label: "Causerie débat - Fondation Jocelyne Silue" },
+  { value: "diner-gala-ascens", label: "Dîner gala Ascens" },
+  { value: "concert-mierevi", label: "Concert MIEREVI" },
+  { value: "cadrage", label: "Activité de cadrage" },
+  { value: "jeune-chambre", label: "Jeune Chambre Internationale" },
+  { value: "autres", label: "Autres" },
+];
 
 interface MediaUploadProps {
   mediaType: "video" | "audio" | "image";
@@ -140,12 +156,18 @@ const MediaUpload = ({ mediaType }: MediaUploadProps) => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="category">Catégorie</Label>
-              <Input
-                id="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                placeholder="Ex: Corporate, Pub, etc."
-              />
+              <Select value={category} onValueChange={setCategory}>
+                <SelectTrigger id="category">
+                  <SelectValue placeholder="Sélectionnez une catégorie" />
+                </SelectTrigger>
+                <SelectContent>
+                  {CATEGORIES.map((cat) => (
+                    <SelectItem key={cat.value} value={cat.value}>
+                      {cat.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             {mediaType !== "image" && (
