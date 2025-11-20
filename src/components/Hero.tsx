@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center" style={{
+      backgroundImage: `url(${heroBackground})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
       </div>
 
@@ -42,15 +39,15 @@ const Hero = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary">5+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">+4</div>
               <div className="text-sm text-muted-foreground">Années d'expérience</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary">100+</div>
-              <div className="text-sm text-muted-foreground">Projets réalisés</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">+50</div>
+              <div className="text-sm text-muted-foreground">Collaborations</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">100 % </div>
               <div className="text-sm text-muted-foreground">Clients satisfaits</div>
             </div>
           </div>
@@ -63,8 +60,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-primary rounded-full" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
