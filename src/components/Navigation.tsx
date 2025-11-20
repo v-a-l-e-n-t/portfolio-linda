@@ -18,8 +18,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl">
-            <span className="text-primary">Linda</span> N'DRI
+          <div className="h-10 flex items-center">
+            <img 
+              src={new URL("../assets/linda-logo.png", import.meta.url).href} 
+              alt="Linda N'DRI" 
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
